@@ -57,7 +57,7 @@ end
     y_n_entered = gets.chomp.downcase
     	
     if y_n_entered == "y"
-      	p "Which appointment would you like to update? (Enter a name)"
+      	p "Which appointment would you like to update? (Enter a trainer name)"
         trainer_name = gets.chomp
         #enter the data base and find an appointment by trainer name 
       	appointment = Appointment.find_by!(trainer_name: trainer_name)
@@ -67,7 +67,7 @@ end
         new_trainer_name_entered = gets.chomp
         #go into data base and find the new trainer name you entered
         new_trainer = Trainer.find_by(name: new_trainer_name_entered)
-        link it to the appointment 
+        #link it to the appointment 
       	appointment.update(trainer_name: new_trainer.name)
       	p "Your appointment has been updated!"
     end
