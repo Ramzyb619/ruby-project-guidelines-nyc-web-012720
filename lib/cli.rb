@@ -93,7 +93,8 @@ end
     #takes in array of appointments and prints it out 
     def print_appointments (appointments)
       appointments.each do |appt|
-      puts "you have an appointment with #{appt.trainer_name} on #{appt.date} at #{appt.time}"
+        #.time is a ruby object. strftime is a method that every time object has. %I - hour of the day (12 hour), %M is minute, %P am or PM
+      puts "you have an appointment with #{appt.trainer_name} on #{appt.date} at #{appt.time.strftime("%I:%M:%P")}"
       end 
     end
 
