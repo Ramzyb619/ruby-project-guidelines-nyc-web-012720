@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200213000731) do
+ActiveRecord::Schema.define(version: 20200211172902) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "client_id"
@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20200213000731) do
     t.date    "date"
     t.time    "time"
     t.string  "specialty"
-    t.string  "trainer_name"
-    t.string  "client_name"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
   end
