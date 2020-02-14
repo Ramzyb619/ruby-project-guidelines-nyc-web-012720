@@ -35,10 +35,11 @@ class CLI
   	new_client = Client.find_or_create_by(name: client_name_entered)
     p "Please pick a date and time would you like to meet? (yyyy/mm/dd hh:mm)"
     date_time_entered = gets.chomp
-    #convert the time that the user entered into an instance of time
+    #.split splits the numbers after every slash,space, or colon, anything that is not a number
     inputs = date_time_entered.split(/\D/)
+    #Date TIme makes a date object out of the numbers they put in. Each number takes the year,date,month etc
     appointment_date_time = DateTime.new(inputs[0].to_i,inputs[1].to_i,inputs[2].to_i, inputs[3].to_i, inputs[4].to_i)
-
+    #Creates a new appointment 
     new_appointment = Appointment.create(trainer_id: trainer.id, client_id: new_client.id, date: appointment_date_time, time: appointment_date_time)
     p "We set up an appointment for you and #{trainer.name}!"
     
@@ -68,10 +69,8 @@ class CLI
         new_trainer_name_entered = gets.strip
         #go into data base and find the new trainer name you entered
         p new_trainer_name_entered
-
         new_trainer = Trainer.find_by(name: new_trainer_name_entered)
         #link it to the appointment 
-        # binding.pry
         appointment.update(trainer_id: new_trainer.id)
         p "Your appointment has been updated!"
     end
@@ -109,5 +108,4 @@ class CLI
       trainers.map { |trainer| puts "#{trainer.name}: #{trainer.specialty}"}.join(", ")
     end 
 end
- 
 

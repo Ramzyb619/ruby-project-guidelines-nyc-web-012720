@@ -5,7 +5,6 @@ class CreateAppointments < ActiveRecord::Migration[5.0]
     t.references :trainer, foreign_key: true
     t.date :date
     t.time :time
-    t.string :specialty
     end 
   end
 end

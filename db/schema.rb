@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20200211172902) do
     t.integer "trainer_id"
     t.date    "date"
     t.time    "time"
-    t.string  "specialty"
     t.index ["client_id"], name: "index_appointments_on_client_id"
     t.index ["trainer_id"], name: "index_appointments_on_trainer_id"
   end
